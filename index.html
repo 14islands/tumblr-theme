@@ -1,0 +1,523 @@
+<html>
+    <head>
+        
+        <!-- Charset -->
+        <meta charset="utf-8">
+        
+        <!-- Title -->
+        <title>{Title}</title>
+        
+        <!-- Description -->
+        {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+        
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <!-- Custom Variables -->
+        <meta name="text:Twitter Name" content="" />
+        <meta name="text:Disqus Shortname" content="" />
+        <meta name="text:Google Analytics ID" content="" />
+        
+        <!-- Link Meta -->        
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" title="{Title}" href="{RSS}" />
+        <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic|Josefin+Sans:600, 700' rel='stylesheet' type='text/css'>
+               
+        <!-- Styles -->
+        <link rel="stylesheet" href="http://static.tumblr.com/f1whv92/Mp9l6ewcg/reset.css" />
+        <style type="text/css">
+
+            /*----- GENERAL -----*/
+
+            header, footer, section, article, nav, aside {
+                display: block;
+             }
+
+            img, object, embed {
+                max-width: 100%;
+            }
+
+            body {
+                max-width: 590px;
+                width: 100%;
+                padding: 50px 20px 0;
+                margin: 0 auto;
+
+                background: #fbf7f3;
+                color: #515151;
+                font-size: 16px;
+                font-family: Bitter, Georgia, sans-serif;
+                word-spacing: 1px;
+
+                // Smooth text for web-kit
+                -webkit-font-smoothing: antialiased;
+
+                // Include padding in width 
+                // for vertical padding on
+                // mobiles
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -o-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+                
+                word-wrap: break-word;
+             }
+
+             a {
+                color: #00a2ff;
+                text-decoration: none;
+             }
+
+             h1 {
+                color: #b07a2c;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: 600;
+                font-size: 22px;
+             }
+
+             h2 {
+                font-size: 24px;
+                font-weight: normal;
+                padding-bottom: 40px;
+             }
+
+             h2 a {
+                color: #529236;
+             }
+
+             h3 {
+                font-size: 18px;
+                font-weight: bold;
+
+                padding-top: 35px;
+                padding-bottom: 25px;
+             }
+
+             .post p, 
+             .post ul, 
+             .post ol {
+                line-height: 27px;
+                padding-bottom: 20px;
+                font-size: 17px;
+             }
+             .post ul, 
+             .post ol {
+                 padding-left: 20px;
+             }
+             .post ul {
+                list-style-type:circle;
+             }
+             .post ol {
+                  list-style-type:upper-roman;
+             }
+             
+             em {
+                color: #ff9000;
+                font-style: italic;  
+                font-weight: bold;  
+            }
+             
+
+             pre {
+                 
+                width: 100%;
+                overflow: hidden; 
+
+                white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+                white-space: -pre-wrap; /* Opera */
+                white-space: -o-pre-wrap; /* Opera */
+                white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+                word-wrap: break-word; /* IE 5.5+ */
+               
+                margin-bottom: 20px;
+             }
+
+             code {
+                
+                font-size: 14px;
+
+                -webkit-border-radius: 8px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+                -moz-border-radius: 8px; /* FF1-3.6 */
+                border-radius: 8px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+
+                /* useful if you don't want a bg color from leaking outside the border: */
+                -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+
+             }
+             
+             .gist-file {
+                font-size: 14px;
+                overflow: hidden;
+                -webkit-border-radius: 8px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+                -moz-border-radius: 8px; /* FF1-3.6 */
+                border-radius: 8px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+
+                /* useful if you don't want a bg color from leaking outside the border: */
+                -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+            }
+            .gist-file pre {
+                box-sizing: border-box;    
+            }
+
+            blockquote {
+                font-style: italic;
+            }
+            
+            blockquote em:before {
+                content: "- ";
+            }
+            
+            blockquote em {
+                display: block;
+                color: #3b3a33;
+            }
+             
+             .avatar {
+                -webkit-border-radius: 100px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+                -moz-border-radius: 100px; /* FF1-3.6 */
+                border-radius: 100px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+
+                /* useful if you don't want a bg color from leaking outside the border: */
+                -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+             }
+
+             /*----- HEADER -----*/
+
+
+             header {
+                text-align: center;
+                margin-bottom: 100px;
+             }
+
+             header img {
+                display: inline-block;
+                height: 64px;
+                width: 64px;
+                margin-bottom: 30px;
+
+
+             }
+
+
+             /*----- POSTS -----*/
+
+             #posts  {
+                display: block;
+                margin-bottom: 20px;
+             }
+
+             #posts .post {
+                display: block;
+                margin-bottom: 60px;
+             }
+
+            #posts img {
+                 -webkit-border-radius: 5px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+                -moz-border-radius: 5px; /* FF1-3.6 */
+                border-radius: 5px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+
+                /* useful if you don't want a bg color from leaking outside the border: */
+                -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+            }
+
+            #posts .post-info {
+                margin-top: 20px;
+            }
+             
+            #posts time {
+                display: block;
+                float: right;
+                
+                color: #B07A2C;  
+                font-style: italic;
+                font-size: 14px;
+                
+            }
+
+            #posts .link time {
+                float: left;
+            }
+
+
+         
+             
+             
+             /*----- PERMALINK PAGE -----*/
+             
+             #posts .permalink {
+                margin-top: 60px;
+             }
+             
+             #posts .more {
+                
+                width: 100%;
+                padding: 30px;
+                margin-bottom: 20px;
+               
+                font-size: 16px;
+                line-height: 25px;
+
+                color: #777;
+                background: white;
+                border: 1px solid #dedede;
+
+                 -webkit-border-radius: 8px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+                -moz-border-radius: 8px; /* FF1-3.6 */
+                border-radius: 8px; /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
+
+                /* useful if you don't want a bg color from leaking outside the border: */
+                -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -o-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+             }
+             
+             .more p {
+                padding-bottom: 30px;    
+             }
+
+             #posts .social-buttons {
+                overflow: hidden;
+             }
+
+             #posts .social-buttons li {
+                float: left;
+                margin-right: 20px;
+             }
+
+             #posts .rss {
+                display: inline-block;
+                padding-left: 20px;
+               
+                font-size: 14px;
+                background: transparent url(http://www.feedburner.com/fb/images/pub/feed-icon16x16.png) no-repeat scroll left center;
+             }
+
+             #posts .rss {
+                display: inline-block;
+                padding-left: 20px;
+                margin-left: 20px;
+
+                font-size: 14px;
+                background: transparent url(http://www.feedburner.com/fb/images/pub/feed-icon16x16.png) no-repeat scroll left center;
+             }
+
+             
+             #posts .notes {
+                padding-top: 20px;
+             }
+            
+            #posts .note {
+                margin-bottom: 10px;
+            }
+
+
+            /*----- FOOTER -----*/
+
+            #profile {
+                margin: 100px 0;
+                text-align: center;
+            }
+
+            #profile span {
+                font-size: 13px;
+                font-style: italic;
+            }
+
+            #profile span a {
+                color: #333;
+                font-weight: bold;
+            }
+          
+             
+             /*----- SMALL SCREENS-----*/
+             
+             @media only screen and (max-width: 580px) {
+                 
+                  code, .gist-file {
+                        font-size: 12px;
+                  }
+
+             }
+
+        </style>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="//raw.github.com/iamnoah/writeCapture/writeCapture2/writeCapture.js"></script>
+        <script>
+            // embed gist links
+            $(document).ready(function() {
+                var prefix = "https://gist.github.com/";
+                $('a[href^="' + prefix + '"]').each(function(i) {
+                    var $anchor = $(this),
+                        $el = $("<p></p>");
+                    $anchor.replaceWith($el);
+                    writeCapture.html($el,'<script src="'+$anchor.attr('href')+'.js"></scr' +'ipt>');
+                    $anchor.remove();
+                }); 
+            });
+        </script>
+
+    </head>
+    <body>
+
+        <header>
+            <a href="/"><img src="{PortraitURL-64}" alt="Hjörtur Elvar Hilmarsson" class="avatar" /></a>
+            <h1>{Title}</h1>
+        </header>
+       
+        <ol id="posts">
+             {block:Posts}
+
+            {block:Text} 
+            <li class="post text">
+                    {block:Title}
+                            <h2><a href="{Permalink}">{Title}</a></h2>
+                    {/block:Title}
+
+
+                    
+                    {Body}
+                    
+                    <div class="post-info">
+
+                        {block:Date}
+                            <time>{lang:Posted TimeAgo from source}</time>            
+                        {/block:Date}
+
+                        {block:IfTwitterName}{block:Title}
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="{Title}" data-url="{Permalink}" data-via="{text:Twitter Name}">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                        </script>
+                        {/block:Title}{/block:IfTwitterName}
+
+                    </div> 
+                    
+            </li>
+            {/block:Text}
+            
+            <!-- 
+              NOTE: 
+              The following section is 
+              rendered for reblogs 
+            -->
+            {block:Link}
+            <li class="post link">
+                
+                <h2><a href="{URL}">{Name}</a></h2>
+                    
+                {block:Description}
+                {Description}...
+                {/block:Description}
+              </li>
+            {/block:Link}
+
+            
+            {block:NotReblog} {block:PermalinkPage} 
+            <li class="permalink">
+                
+                    <div class="more">
+
+                        {block:Description}
+                        <p>
+                            {Description}
+                        </p>
+                        {/block:Description}
+                        
+
+                        <ul class="social-buttons">
+
+                            {block:IfTwitterName}
+                            <li>
+                                  <a href="https://twitter.com/{text:Twitter Name}" class="twitter-follow-button" data-show-count="false">Follow @{text:Twitter Name}</a>
+                                <script>
+                                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                                </script>
+                            </li>
+                            {/block:IfTwitterName} 
+
+                            <!-- RSS Link
+                           <li>
+                                <a href="{RSS}" class="rss">Subscribe to RSS</a>
+                           </li> -->
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="comments"></div>
+                    
+                    
+                    {PostNotes}
+                
+            
+            </li>
+            {/block:PermalinkPage}{/block:NotReblog}
+          
+      
+            {/block:Posts} 
+        </ol>
+
+        <div id="footer">
+            
+            {block:PreviousPage} 
+                <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}
+
+            {block:NextPage} 
+                <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+
+            <!-- ><div id="profile">
+                <span>Theme created by <a href="http://14islands.com" target="_blank" >14islands</a></span>
+            </div> -->
+
+        </div>
+
+         <!-- Syntax highligting -->
+        <link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/monokai.min.css">
+        <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        
+        {block:IfDisqusShortname}
+        <!-- Disqus -->
+        <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        {/block:Permalink}<script type="text/javascript">
+        var disqus_shortname = '{text:Disqus Shortname}';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+        {/block:IfDisqusShortname}
+        
+        
+        {block:IfGoogleAnalyticsID}
+        <!-- Google Analytics -->
+        <script>
+        var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+        {block:IfGoogleAnalyticsID}
+
+    </body>
+</html>
