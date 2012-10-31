@@ -15,6 +15,7 @@
         
         <!-- Custom Variables -->
         <meta name="text:Twitter Name" content="" />
+        <meta name="text:Disqus Shortname" content="" />
         <meta name="text:Google Analytics ID" content="" />
         
         <!-- Link Meta -->        
@@ -39,7 +40,7 @@
             body {
                 max-width: 590px;
                 width: 100%;
-                padding: 50px 20px 0;
+                padding: 40px 20px 0;
                 margin: 0 auto;
 
                 background: #fbf7f3;
@@ -184,21 +185,21 @@
 
              header {
                 text-align: center;
-                margin-bottom: 60px;
+                margin-bottom: 40px;
              }
 
              header img {
                 display: inline-block;
-                height: 64px;
-                width: 64px;
-                margin-bottom: 20px;
+                height: 40px;
+                width: 40px;
+                margin-bottom: 10px;
              }
              
              header h4 {
                 color: #b07a2c;
                 font-family: 'Josefin Sans', sans-serif;
                 font-weight: 600;
-                font-size: 22px;
+                font-size: 18px;
              }
 
 
@@ -338,7 +339,11 @@
              
              @media only screen and (min-width: 580px) {
                  
-                    
+                 body {
+                    padding-top: 50px;
+                  }
+                  
+                  
                   code, .gist-file {
                         font-size: 14px;
                   }
@@ -347,8 +352,16 @@
                         margin-bottom: 100px;
                   }
                   
-                  
-                  
+                  header img {
+                    height: 64px;
+                    width: 64px;
+                    margin-bottom: 15px;
+                 }
+                 
+                 header h4 {
+                    font-size: 22px;
+                 }
+ 
                  .post h3 {
                     font-size: 18px;
                     font-style: italic;
@@ -378,7 +391,7 @@
     <body>
 
         <header>
-            <a href="/"><img src="{PortraitURL-64}" alt="Hjörtur Elvar Hilmarsson" class="avatar" /></a>
+            <a href="/"><img src="{PortraitURL-64}" alt="14islands" class="avatar" /></a>
             <h4>{Title}</h4>
         </header>
        
@@ -389,6 +402,7 @@
             <li class="post text">
                     {block:Title}
                             <h1><a href="{Permalink}">{Title}</a></h1>
+                            <!-- >{ShortMonth} {DayOfMonth}, {Year}</p> -->
                     {/block:Title}
 
 
@@ -479,6 +493,42 @@
         <link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/monokai.min.css">
         <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+        
+
+
+  {block:IfDisqusShortname}
+        <!-- Disqus -->
+        <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        {/block:Permalink}<script type="text/javascript">
+        var disqus_shortname = '{text:Disqus Shortname}';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+        {/block:IfDisqusShortname}
+        
+        {block:IfGoogleAnalyticsID
+<script>
+var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+{block:IfGoogleAnalyticsID}
         
 
 
