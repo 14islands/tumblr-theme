@@ -21,10 +21,7 @@ body {
     font-size: 16px;
     font-family: Bitter, Georgia, sans-serif;
     word-spacing: 1px;
-     word-wrap: break-word;
-
-    // Smooth text for web-kit
-    -webkit-font-smoothing: antialiased;
+    word-wrap: break-word;
 }
 
  a {
@@ -321,29 +318,9 @@ code {
 
 
 
-
-
-/*----- FOOTER -----
-
-#profile {
-    margin: 100px 0;
-    text-align: center;
-}
-
-#profile span {
-    font-size: 13px;
-    font-style: italic;
-}
-
-#profile span a {
-    color: #333;
-    font-weight: bold;
-}
-*/
+/*----- BIGGER SCREENS-----*/
  
- /*----- BIGGER SCREENS-----*/
- 
- @media only screen and (min-width: 590px) {
+@media only screen and (min-width: 590px) {
      
     #header {
        	padding: 40px 0 20px;
@@ -369,12 +346,9 @@ code {
     code, .gist-file {
 	        font-size: 14px;
 	}
-   
-    
+}
 
- }
-
- @media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1400px) {
      
  	#header {
 	    position: fixed;
@@ -462,4 +436,4 @@ code {
 		display: none;
 	}
 
- }
+}
